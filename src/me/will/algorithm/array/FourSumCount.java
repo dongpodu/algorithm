@@ -1,4 +1,4 @@
-package me.will.algorithm;
+package me.will.algorithm.array;
 
 import java.util.HashMap;
 import java.util.List;

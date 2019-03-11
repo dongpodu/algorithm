@@ -5,6 +5,11 @@ import java.util.Map;
 
 public class FirstUniqChar {
 
+    /**
+     * 找到第一个不重复的字符
+     * @param s
+     * @return
+     */
     public static int firstUniqChar(String s) {
         Map<Character,Integer> map = new HashMap<>();
         for(int i = 0; i < s.length(); i++){

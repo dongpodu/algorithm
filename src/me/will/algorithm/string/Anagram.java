@@ -1,6 +1,12 @@
 package me.will.algorithm.string;
 
 public class Anagram {
+    /**
+     * 判断两个字符串是否为异位字符串
+     * @param s
+     * @param t
+     * @return
+     */
     public static boolean isAnagram(String s, String t) {
         int[] times = new int[256];
         for (char c : s.toCharArray()) {
