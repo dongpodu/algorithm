@@ -3,6 +3,7 @@ package me.will.algorithm.string;
 public class Anagram {
     /**
      * 判断两个字符串是否为异位字符串
+     *
      * @param s
      * @param t
      * @return
@@ -17,8 +18,8 @@ public class Anagram {
             times1[c - 'a']++;
         }
 
-        for(int i=0;i<times.length;i++){
-            if(times[i]!=times1[i]){
+        for (int i = 0; i < times.length; i++) {
+            if (times[i] != times1[i]) {
                 return false;
             }
         }
@@ -26,8 +27,8 @@ public class Anagram {
     }
 
     public static void main(String[] args) {
-        String s="rat";
-        String t="car";
-        System.out.println(isAnagram(s,t));
+        String s = "rat";
+        String t = "car";
+        System.out.println(isAnagram(s, t));
     }
 }

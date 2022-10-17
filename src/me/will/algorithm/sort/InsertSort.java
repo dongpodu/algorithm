@@ -7,14 +7,14 @@ import java.util.Arrays;
  */
 public class InsertSort {
 
-    public static void sort(int[] array){
+    public static void sort(int[] array) {
         int temp;
-        for(int i=1;i<array.length;i++){
+        for (int i = 1; i < array.length; i++) {
             temp = array[i];
-            for(int j=i;j>=0;j--){
-                if(j-1>=0 && array[j-1]>temp){
-                    array[j] = array[j-1];
-                }else{
+            for (int j = i; j >= 0; j--) {
+                if (j - 1 >= 0 && array[j - 1] > temp) {
+                    array[j] = array[j - 1];
+                } else {
                     array[j] = temp;
                     break;
                 }
@@ -23,7 +23,7 @@ public class InsertSort {
     }
 
     public static void main(String[] args) {
-        int[] array = new int[]{2,1,4,7,5,5,7};
+        int[] array = new int[]{2, 1, 4, 7, 5, 5, 7};
         sort(array);
         Arrays.stream(array).forEach(r -> System.out.println(r));
     }

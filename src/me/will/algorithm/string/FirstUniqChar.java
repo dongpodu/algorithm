@@ -7,17 +7,18 @@ public class FirstUniqChar {
 
     /**
      * 找到第一个不重复的字符
+     *
      * @param s
      * @return
      */
     public static int firstUniqChar(String s) {
-        Map<Character,Integer> map = new HashMap<>();
-        for(int i = 0; i < s.length(); i++){
+        Map<Character, Integer> map = new HashMap<>();
+        for (int i = 0; i < s.length(); i++) {
             Integer val = map.get(s.charAt(i));
-            map.put(s.charAt(i),(val == null) ? 1 : ++val);
+            map.put(s.charAt(i), (val == null) ? 1 : ++val);
         }
-        for(int i = 0; i < s.length(); i++){
-            if(map.get(s.charAt(i)) == 1){
+        for (int i = 0; i < s.length(); i++) {
+            if (map.get(s.charAt(i)) == 1) {
                 return i;
             }
         }
