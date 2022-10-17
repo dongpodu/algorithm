@@ -5,14 +5,16 @@ import java.util.stream.Collectors;
 
 public class Duplicate {
 
+    /**
+     * 数组的长度是n，数组内的数字在0-n-1范围内，找出这个数组中任意一对重复数字
+     *
+     * @param arr
+     */
     public static void findAnyDuplicate(int[] arr) {
         int d = 0;
         for (int i = 0; i < arr.length; ) {
             if (arr[i] != i) {
                 if (arr[i] == arr[arr[i]]) {
-                    d = arr[i];
-                    break;
-                } else if (arr[i] < i) {
                     d = arr[i];
                     break;
                 }
