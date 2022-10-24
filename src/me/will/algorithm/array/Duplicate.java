@@ -13,7 +13,7 @@ public class Duplicate {
     public static void findAnyDuplicate(int[] arr) {
         int d = 0;
         for (int i = 0; i < arr.length; ) {
-            if (arr[i] != i) {
+            if (arr[i] != i) { //循环调换，直到arr[i]==i才往下比较下一个数
                 if (arr[i] == arr[arr[i]]) {
                     d = arr[i];
                     break;
@@ -33,7 +33,7 @@ public class Duplicate {
     }
 
     public static void main(String[] args) {
-        int[] arr = new int[]{3, 2, 1, 2, 1};
+        int[] arr = new int[]{3, 3, 1, 4, 1};
         findAnyDuplicate(arr);
     }
 }
