@@ -6,46 +6,59 @@ import java.util.List;
 public class Replace {
 
     /**
-     * 将字符串里的空格替换成%20
+     * 将字符数组里的#替换成%20，要求时间复杂度为o(n)，内存复杂度为o(n)
+     * 算法：先统计数组里包含的#数，计算出替换后的数组的大小，然后从后往前替换。
      *
      * @param list
      */
     public static void replace(List<Character> list) {
+        System.out.println(list);
+        //计算总的#数
         int count = 0;
         for (int i = 0; i < list.size(); i++) {
-            if (isEmpty(list.get(i))) {
+            if (isSpecial(list.get(i))) {
                 count++;
             }
         }
-        int size = list.size() + count * 3;
-        List<Character> l = new ArrayList<>(size);
-        l.addAll(list);
-        for (int i = list.size() - 1, j = list.size() - 1, x = count; i > 0; i--) {
-            if (isEmpty(list.get(i))) {
-                for (; j >= i; j--) {
-                    list.set(j + x * 3, list.get(j));
+        //扩大列表，后面补*，为了是模拟数组
+        int oldSize = list.size();
+        int newSize = oldSize + count * 2;
+        for (int i = list.size(); i < newSize; i++) {
+            list.add('*');
+        }
+        System.out.println(list);
+        for (int i = oldSize - 1, j = oldSize - 1, x = count; i > 0; i--) {
+            Character c = list.get(i);
+            if (isSpecial(c)) {
+                int index = 0;
+                for (; j > i; j--) {
+                    index = j + x * 2;
+                    list.set(index, list.get(j));
+                    System.out.println(list);
                 }
-                list.set(i, '%');
-                list.set(i + 1, '2');
-                list.set(i + 2, '0');
+                list.set(index - 3, '%');
+                list.set(index - 2, '2');
+                list.set(index - 1, '0');
+                System.out.println(list);
                 x -= 1;
             }
         }
-        System.out.println(l);
+        System.out.println(list);
 
     }
 
-    public static boolean isEmpty(Character c) {
-        return c == '\32';
+
+    public static boolean isSpecial(Character c) {
+        return c == '#';
     }
 
     public static void main(String[] args) {
         List<Character> list = new ArrayList<>();
         list.add('a');
         list.add('b');
-        list.add(' ');
+        list.add('#');
         list.add('c');
-        list.add(' ');
+        list.add('#');
         list.add('d');
         replace(list);
     }
