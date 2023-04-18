@@ -23,16 +23,16 @@ public class MinCostClimbStairs {
      * 3）上到第2台阶，总共需要min(0,0)=0
      * 4）上到第3台阶，总共需要min(dp[1]+cost[1]=0,dp[2]+cost[2]=1)=0
      */
-    public int test(int i, int[] c) {
+    public int test(int i, int[] costArray) {
         if (i <= 1) {
             return 0;
         }
-        int[] cost = new int[i];
-        cost[0] = 0;
-        cost[1] = 0;
+        int[] costSumArray = new int[i];
+        costSumArray[0] = 0;
+        costSumArray[1] = 0;
         for (int j = 2; j <= i; j++) {
-            cost[j] = Math.min(cost[j - 2] + c[j - 2], cost[j - 1] + c[j - 1]);
+            costSumArray[j] = Math.min(costSumArray[j - 2] + costArray[j - 2], costSumArray[j - 1] + costArray[j - 1]);
         }
-        return cost[i];
+        return costSumArray[i];
     }
 }
