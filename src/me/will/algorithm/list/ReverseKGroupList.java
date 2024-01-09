@@ -1,31 +1,48 @@
 package me.will.algorithm.list;
 
-public class ReverseList {
+public class ReverseKGroupList {
 
 	/**
-	 * 翻转整个链表，双指针法
-	 * https://www.programmercarl.com/0206.%E7%BF%BB%E8%BD%AC%E9%93%BE%E8%A1%A8.html#%E6%80%9D%E8%B7%AF
+	 * 按照k个元素一组翻转链表
 	 *
 	 * @param head
+	 * @param k
 	 * @return
 	 */
-	public static Node reverse(Node head) {
+	public static Node reverseKGroup(Node head, int k) {
+		if (k == 1) {
+			return head;
+		}
+		int loop = size(head) / k;
 		Node cur = head;
 		Node pre = null;
-		Node forward = null;//前进指针
+		Node tmp = null;
 
-		while (cur != null) {
-			//记录前进指针，为下一步循环做准备
-			forward = cur.next;
+		Node newHead = null;
+		for (int i = 0; i < loop; i++) {
+			for (int j = 0; j < k; j++) {
+				tmp = cur.next;
 
-			//指针反转
-			cur.next = pre;
+				cur.next = pre;
+				pre = cur;
 
-			//前进一步
-			pre = cur;
-			cur = forward;
+				cur = tmp;
+			}
+
+			//保留新头节点
+			if (i == 0) {
+				newHead = pre;
+			}
+
+			if (tmp == null) {
+				break;
+			}
+
+			pre = tmp;
+			cur = tmp.next;
+
 		}
-		return pre;
+		return newHead;
 	}
 
 	public static int size(Node head) {
@@ -75,9 +92,6 @@ public class ReverseList {
 
 		print(head);
 
-		System.out.println("-------翻转后-------");
-		Node newHead = reverse(head);
-		print(newHead);
 	}
 
 
