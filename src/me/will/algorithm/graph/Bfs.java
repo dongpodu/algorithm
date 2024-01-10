@@ -43,17 +43,20 @@ public class Bfs {
 	 *
 	 * @param graph
 	 */
-	public void bfsTraverse(int[][] graph) {
+	public static void bfsTraverse(int[][] graph) {
 		int vertexSize = graph.length;
 		boolean[] visited = new boolean[vertexSize];//用于记录顶点是否已访问
+		int bfsCount = 0;
 		for (int i = 0; i < vertexSize; i++) {
 			if (!visited[i]) {
 				bfs(i, graph, visited);
+				bfsCount++;
 			}
 		}
+		System.out.println("遍历次数：" + bfsCount);
 	}
 
-	public void bfs(int start, int[][] graph, boolean[] visited) {
+	public static void bfs(int start, int[][] graph, boolean[] visited) {
 		Queue<Integer> queue = new LinkedList<>();
 		queue.add(start);
 		visited[start] = true;
@@ -66,5 +69,16 @@ public class Bfs {
 				}
 			}
 		}
+	}
+
+	public static void main(String[] args) {
+		int[][] graph = new int[][] {
+			new int[] {1, 0, 1, 0},
+			new int[] {0, 1, 1, 0},
+			new int[] {1, 1, 1, 0},
+			new int[] {0, 0, 0, 1}
+		};
+
+		bfsTraverse(graph);
 	}
 }

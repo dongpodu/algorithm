@@ -181,20 +181,20 @@
       <recent name="me.will.algorithm.string" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.ThreeSumCount">
+  <component name="RunManager" selected="Application.Bfs">
     <configuration default="true" type="Applet">
       <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ClimbStairs" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="me.will.algorithm.dynamic.ClimbStairs" />
+    <configuration name="Bfs" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="me.will.algorithm.graph.Bfs" />
       <module name="algorithm" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="me.will.algorithm.dynamic.*" />
+          <option name="PATTERN" value="me.will.algorithm.graph.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -202,8 +202,8 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Fibonacci" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="me.will.algorithm.dynamic.Fibonacci" />
+    <configuration name="ClimbStairs" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="me.will.algorithm.dynamic.ClimbStairs" />
       <module name="algorithm" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
       <extension name="coverage">
@@ -302,11 +302,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.Bfs" />
         <item itemvalue="Application.ThreeSumCount" />
         <item itemvalue="Application.ReverseList" />
         <item itemvalue="Application.Road" />
         <item itemvalue="Application.ClimbStairs" />
-        <item itemvalue="Application.Fibonacci" />
       </list>
     </recent_temporary>
   </component>
@@ -444,7 +444,14 @@
       <option name="project" value="LOCAL" />
       <updated>1704848010073</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="邻接矩阵结构的图遍历">
+      <created>1704851844533</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1704851844533</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
@@ -530,7 +537,8 @@
     <MESSAGE value="反转列表" />
     <MESSAGE value="三数之和" />
     <MESSAGE value="remove class" />
-    <option name="LAST_COMMIT_MESSAGE" value="remove class" />
+    <MESSAGE value="邻接矩阵结构的图遍历" />
+    <option name="LAST_COMMIT_MESSAGE" value="邻接矩阵结构的图遍历" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -549,6 +557,16 @@
           <url>file://$PROJECT_DIR$/src/me/will/algorithm/array/ThreeSumCount.java</url>
           <line>14</line>
           <option name="timeStamp" value="7" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/me/will/algorithm/graph/Bfs.java</url>
+          <line>51</line>
+          <option name="timeStamp" value="9" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/me/will/algorithm/graph/Bfs.java</url>
+          <line>59</line>
+          <option name="timeStamp" value="10" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
