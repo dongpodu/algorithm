@@ -4,30 +4,31 @@ import java.util.*;
 
 public class Dfs {
 
+	/**
+	 * 邻接表结构dfs
+	 *
+	 * @param adj
+	 */
 	public void dfsTraverse(Map<Integer, List<Integer>> adj) {
 		Set<Integer> visitedVertex = new HashSet<>();
 		for (Integer v : adj.keySet()) {
 			if (visitedVertex.contains(v)) {
 				continue;
 			}
-			Set<Integer> tmp = dfs(v, adj);
-			visitedVertex.addAll(tmp);
+			dfs(v, adj, visitedVertex);
 		}
 	}
 
 
-	public Set<Integer> dfs(Integer root, Map<Integer, List<Integer>> adj) {
+	public void dfs(Integer root, Map<Integer, List<Integer>> adj, Set<Integer> visited) {
 		List<Integer> ns = adj.get(root);
 		if (ns == null || ns.size() == 0) {
-			return Collections.emptySet();
+			return;
 		}
-		Set<Integer> visitedVertex = new HashSet<>();
 		for (Integer v : ns) {
-			if (!visitedVertex.contains(v)) {
-				Set<Integer> set = dfs(v, adj);
-				visitedVertex.addAll(set);
+			if (!visited.contains(v)) {
+				dfs(v, adj, visited);
 			}
 		}
-		return visitedVertex;
 	}
 }
