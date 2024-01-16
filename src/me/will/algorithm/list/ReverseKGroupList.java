@@ -9,90 +9,51 @@ public class ReverseKGroupList {
 	 * @param k
 	 * @return
 	 */
-	public static Node reverseKGroup(Node head, int k) {
+	public static ListNode reverseKGroup(ListNode head, int k) {
 		if (k == 1) {
 			return head;
 		}
 		int loop = size(head) / k;
-		Node cur = head;
-		Node pre = null;
-		Node tmp = null;
 
-		Node newHead = null;
+		ListNode start = head;//每一轮循环的开始节点
+		ListNode newHead = null;//翻转后新的起始节点
 		for (int i = 0; i < loop; i++) {
+			ListNode cur = start;
+			ListNode pre = null;
+			ListNode forward = null;
 			for (int j = 0; j < k; j++) {
-				tmp = cur.next;
+				forward = cur.next;
 
 				cur.next = pre;
 				pre = cur;
 
-				cur = tmp;
+				cur = forward;
+
+				if (j == k - 1) {
+					start = cur;
+				}
 			}
 
-			//保留新头节点
 			if (i == 0) {
 				newHead = pre;
 			}
 
-			if (tmp == null) {
+			if (forward == null) {
 				break;
 			}
-
-			pre = tmp;
-			cur = tmp.next;
 
 		}
 		return newHead;
 	}
 
-	public static int size(Node head) {
+	public static int size(ListNode head) {
 		int i = 0;
-		Node cur = head;
+		ListNode cur = head;
 		while (cur != null) {
 			cur = cur.next;
 			i++;
 		}
 		return i;
 	}
-
-	public static void print(Node head) {
-		Node cur = head;
-		while (cur != null) {
-			System.out.println(cur);
-			cur = cur.next;
-		}
-	}
-
-	public static class Node {
-		private int val;
-		private Node next;
-
-		public Node(int val) {
-			this.val = val;
-		}
-
-		@Override
-		public String toString() {
-			return "Node{" +
-				"val=" + val +
-				'}';
-		}
-	}
-
-	public static void main(String[] args) {
-		Node head = new Node(0);
-		Node n1 = new Node(1);
-		Node n2 = new Node(2);
-		Node n3 = new Node(3);
-		Node n4 = new Node(4);
-		head.next = n1;
-		n1.next = n2;
-		n2.next = n3;
-		n3.next = n4;
-
-		print(head);
-
-	}
-
 
 }

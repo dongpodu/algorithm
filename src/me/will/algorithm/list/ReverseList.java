@@ -9,10 +9,10 @@ public class ReverseList {
 	 * @param head
 	 * @return
 	 */
-	public static Node reverse(Node head) {
-		Node cur = head;
-		Node pre = null;
-		Node forward = null;//前进指针
+	public static ListNode reverse(ListNode head) {
+		ListNode cur = head;
+		ListNode pre = null;
+		ListNode forward = null;//前进指针
 
 		while (cur != null) {
 			//记录前进指针，为下一步循环做准备
@@ -28,46 +28,20 @@ public class ReverseList {
 		return pre;
 	}
 
-	public static int size(Node head) {
-		int i = 0;
-		Node cur = head;
-		while (cur != null) {
-			cur = cur.next;
-			i++;
-		}
-		return i;
-	}
-
-	public static void print(Node head) {
-		Node cur = head;
+	public static void print(ListNode head) {
+		ListNode cur = head;
 		while (cur != null) {
 			System.out.println(cur);
 			cur = cur.next;
 		}
 	}
 
-	public static class Node {
-		private int val;
-		private Node next;
-
-		public Node(int val) {
-			this.val = val;
-		}
-
-		@Override
-		public String toString() {
-			return "Node{" +
-				"val=" + val +
-				'}';
-		}
-	}
-
 	public static void main(String[] args) {
-		Node head = new Node(0);
-		Node n1 = new Node(1);
-		Node n2 = new Node(2);
-		Node n3 = new Node(3);
-		Node n4 = new Node(4);
+		ListNode head = new ListNode(0);
+		ListNode n1 = new ListNode(1);
+		ListNode n2 = new ListNode(2);
+		ListNode n3 = new ListNode(3);
+		ListNode n4 = new ListNode(4);
 		head.next = n1;
 		n1.next = n2;
 		n2.next = n3;
@@ -76,7 +50,7 @@ public class ReverseList {
 		print(head);
 
 		System.out.println("-------翻转后-------");
-		Node newHead = reverse(head);
+		ListNode newHead = reverse(head);
 		print(newHead);
 	}
 
