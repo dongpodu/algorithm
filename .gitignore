@@ -4,6 +4,7 @@
 
 # Log file
 *.log
+logs
 
 # BlueJ files
 *.ctxt
@@ -17,13 +18,12 @@ hs_err_pid*
 *.iml
 *.ipr
 *.iws
-.idea/*
 .idea/
-!.idea/codeStyles/
-!.idea/copyright/
 .gradle/
 build/
 out/
+logs/
 local.properties
 *.DS_Store
 *.pyc
+metastore_db/

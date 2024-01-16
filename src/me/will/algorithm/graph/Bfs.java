@@ -4,35 +4,81 @@ import java.util.*;
 
 public class Bfs {
 
+	/**
+	 * 邻接表结构bfs
+	 *
+	 * @param adj
+	 */
 	public void bfsTraverse(Map<Integer, List<Integer>> adj) {
-		Set<Integer> visitedVertex = new HashSet<>();
+		Set<Integer> visited = new HashSet<>();
 		for (Integer v : adj.keySet()) {
-			if (visitedVertex.contains(v)) {
+			if (visited.contains(v)) {
 				continue;
 			}
-			Set<Integer> tmp = bfs(v, adj);
-			visitedVertex.addAll(tmp);
+			bfs(v, adj, visited);
 		}
 	}
 
-
-	public Set<Integer> bfs(Integer root, Map<Integer, List<Integer>> adj) {
-		Set<Integer> visitedVertex = new HashSet<>();
-		Queue<Integer> queue = new ArrayDeque<>();
+	public void bfs(Integer root, Map<Integer, List<Integer>> graph, Set<Integer> visited) {
+		Queue<Integer> queue = new LinkedList<>();
 		queue.add(root);
+		visited.add(root);
 		while (!queue.isEmpty()) {
 			int vertex = queue.poll();
-			List<Integer> ns = adj.get(vertex);
+			List<Integer> ns = graph.get(vertex);
 			if (ns == null || ns.size() == 0) {
 				continue;
 			}
 			for (Integer v : ns) {
-				if (!visitedVertex.contains(v)) {
-					visitedVertex.add(v);
+				if (!visited.contains(v)) {
+					visited.add(v);
 					queue.add(v);
 				}
 			}
 		}
-		return visitedVertex;
+	}
+
+	/**
+	 * 邻接矩阵结构bfs
+	 *
+	 * @param graph
+	 */
+	public static void bfsTraverse(int[][] graph) {
+		int vertexSize = graph.length;
+		boolean[] visited = new boolean[vertexSize];//用于记录顶点是否已访问
+		int bfsCount = 0;
+		for (int i = 0; i < vertexSize; i++) {
+			if (!visited[i]) {
+				bfs(i, graph, visited);
+				bfsCount++;
+			}
+		}
+		System.out.println("遍历次数：" + bfsCount);
+	}
+
+	public static void bfs(int start, int[][] graph, boolean[] visited) {
+		Queue<Integer> queue = new LinkedList<>();
+		queue.add(start);
+		visited[start] = true;
+		while (!queue.isEmpty()) {
+			Integer i = queue.poll();
+			for (int j = 0; j < graph.length; j++) {
+				if (graph[i][j] == 1 && !visited[j]) {
+					queue.add(j);
+					visited[j] = true;
+				}
+			}
+		}
+	}
+
+	public static void main(String[] args) {
+		int[][] graph = new int[][] {
+			new int[] {1, 0, 1, 0},
+			new int[] {0, 1, 1, 0},
+			new int[] {1, 1, 1, 0},
+			new int[] {0, 0, 0, 1}
+		};
+
+		bfsTraverse(graph);
 	}
 }
