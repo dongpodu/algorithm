@@ -1,5 +1,6 @@
 package me.will.algorithm.tree;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -7,8 +8,41 @@ import java.util.List;
  */
 public class ZigzagLevelOrder {
 
-	public List<List<Integer>> zigzagLevelOrder(TreeNode root) {
+	public static List<List<Integer>> zigzagLevelOrder(TreeNode root) {
+		List<List<Integer>> result = new ArrayList<>();
+		traverse(root, true, result);
+		return result;
+	}
 
-		return null;
+	public static void traverse(TreeNode root, boolean left, List<List<Integer>> result) {
+		if (root == null) {
+			return;
+		}
+		List<Integer> list = new ArrayList<>();
+		if (left) {
+			if (root.left != null) {
+				list.add(root.left.val);
+			}
+			if (root.right != null) {
+				list.add(root.right.val);
+			}
+		} else {
+
+			if (root.right != null) {
+				list.add(root.right.val);
+			}
+			if (root.left != null) {
+				list.add(root.left.val);
+			}
+		}
+
+		if (list.isEmpty()) {
+			return;
+		}
+
+		result.add(list);
+
+		traverse(root.left, !left, result);
+		traverse(root.right, !left, result);
 	}
 }
