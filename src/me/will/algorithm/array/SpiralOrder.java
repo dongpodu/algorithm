@@ -9,48 +9,49 @@ import java.util.List;
 public class SpiralOrder {
 
 	public static List<Integer> spiralOrder(int[][] matrix) {
-		int[] ip = new int[]{0, matrix.length - 1};
-		int[] jp = new int[]{0, matrix[0].length - 1};
+		int m = matrix.length;
+		int n = matrix[0].length;
+
+		int left = 0;
+		int upper = 0;
+		int right = n - 1;
+		int bottom = m - 1;
+
 		List<Integer> result = new ArrayList<>();
-
-		int i = 0;
-		int j = 0;
-		for (int a = 0; a < 4; a++) {
-
+		while (result.size() < m * n) {
 			//横右，i不动，j向右移动，最小i+1
-			if (a == 0) {
-				for (; j <= jp[1]; j++) {
-					result.add(matrix[i][j]);
-					ip[0] += 1;
+			if (upper <= bottom) {
+				for (int i = left; i <= right; i++) {
+					result.add(matrix[upper][i]);
 				}
+				upper++;
 			}
+
 
 			//竖下，i向下移动，j不动，最大j-1
-			if (a == 1) {
-				for (; i <= ip[1]; i++) {
-					result.add(matrix[i][j]);
-					jp[1] -= 1;
+			if (left <= right) {
+				for (int i = upper; i <= bottom; i++) {
+					result.add(matrix[i][right]);
 				}
+				right--;
 			}
+
 
 			//横左，i不动，j向左移动，最大i-1
-			if (a == 2) {
-				for (; j >= jp[0]; j--) {
-					result.add(matrix[i][j]);
-					ip[1] -= 1;
+			if (upper <= bottom) {
+				for (int i = right; i >= left; i--) {
+					result.add(matrix[bottom][i]);
 				}
+				bottom--;
 			}
+
 
 			//竖上，i向上移动，j不动，最小j+1
-			if (a == 1) {
-				for (; i >= ip[0]; i--) {
-					result.add(matrix[i][j]);
-					jp[0] += 1;
+			if (left <= right) {
+				for (int i = bottom; i >= upper; i--) {
+					result.add(matrix[i][left]);
 				}
-			}
-
-			if (ip[0] > ip[1] || jp[0] > jp[1]) {
-				break;
+				left++;
 			}
 		}
 
