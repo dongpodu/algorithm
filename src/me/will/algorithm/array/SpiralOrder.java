@@ -59,6 +59,15 @@ public class SpiralOrder {
 	}
 
 	public static void main(String[] args) {
+		/*
+		横右 （0,0）->(0,3) i不动，j移动，最小i+1，i(1,2) j(0,3)
+竖下 （0,3）->(2,3) i移动，j不动，最大j-1，i(1,2) j(0,2)
+横左 （2,3）->(2,0) i不动，j移动，最大i-1，i(1,1) j(0,2)
+竖上 （2,0）->(1,0) i移动，j移动，最小j+1，i(1,1) j(1,2)
+
+横右 （1,0）->(1,2) i不动，j移动，i() j(0,3)
+竖下  (1,2) -> i移动，j不动，i() j(0,3)
+		 */
 		int[][] matrix = {{1, 2, 3, 4}, {5, 6, 7, 8}, {9, 10, 11, 12}};
 		List<Integer> list = spiralOrder(matrix);
 		System.out.println(list);
