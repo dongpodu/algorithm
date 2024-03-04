@@ -1,6 +1,12 @@
 package me.will.algorithm.string;
 
 public class LongestPalindrome {
+	/**
+	 * 此方法时间复杂度是o(n^3),待改善
+	 *
+	 * @param s
+	 * @return
+	 */
 	public static String longestPalindrome(String s) {
 		String tmp = null;
 		//假设s减去i个字符后是回文子串
