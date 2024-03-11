@@ -1,6 +1,7 @@
 package me.will.algorithm.tree;
 
 /**
+ * 最近公共祖先
  * https://leetcode.cn/problems/lowest-common-ancestor-of-a-binary-tree/
  */
 public class LowestCommonAncestor {
