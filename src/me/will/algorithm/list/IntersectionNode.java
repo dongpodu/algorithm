@@ -51,23 +51,8 @@ public class IntersectionNode {
 	}
 
 	public static void main(String[] args) {
-		ListNode headA = new ListNode(0);
-		ListNode n1 = new ListNode(1);
-		ListNode n2 = new ListNode(2);
-		ListNode n3 = new ListNode(3);
-		ListNode n4 = new ListNode(4);
-		headA.next = n1;
-		n1.next = n2;
-		n2.next = n3;
-		n3.next = n4;
-
-		ListNode headB = new ListNode(10);
-		ListNode n11 = new ListNode(3);
-		ListNode n22 = new ListNode(5);
-		headB.next = n11;
-		n11.next = n22;
-//		n22.next = n2;
-
+		ListNode headA = ListNode.buildList(new int[]{0, 1, 2, 3, 4});
+		ListNode headB = ListNode.buildList(new int[]{10, 3, 5});
 		ListNode node = getIntersectionNode(headA, headB);
 		System.out.println(node);
 	}

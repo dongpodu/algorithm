@@ -1,7 +1,5 @@
 package me.will.algorithm.list;
 
-import java.util.List;
-
 public class HasCycle {
 	public static boolean hasCycle(ListNode head) {
 		if (head == null) {

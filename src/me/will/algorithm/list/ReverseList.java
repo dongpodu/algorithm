@@ -37,18 +37,8 @@ public class ReverseList {
 	}
 
 	public static void main(String[] args) {
-		ListNode head = new ListNode(0);
-		ListNode n1 = new ListNode(1);
-		ListNode n2 = new ListNode(2);
-		ListNode n3 = new ListNode(3);
-		ListNode n4 = new ListNode(4);
-		head.next = n1;
-		n1.next = n2;
-		n2.next = n3;
-		n3.next = n4;
-
+		ListNode head = ListNode.buildList(new int[]{0, 1, 2, 3, 4});
 		print(head);
-
 		System.out.println("-------翻转后-------");
 		ListNode newHead = reverse(head);
 		print(newHead);
