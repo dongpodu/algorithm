@@ -15,27 +15,41 @@ public class ClimbStairs {
 	 * 4、遍历顺序：因为dp[i]=dp[i-1]+dp[i-2]，所以遍历是从前向后遍历
 	 * 5、举例：当i为8时，数组如下：1,2,3,5,8,13,21,34
 	 *
-	 * @param i
+	 * @param n
 	 * @return
 	 */
-	public static int test(int i) {
-		if (i <= 2) {
-			return i;
+	public static int climbStairs(int n) {
+		if (n <= 2) {
+			return n;
 		}
-		int d = 0;
-		int d_2 = 1;
-		int d_1 = 2;
-		for (int j = 3; j <= i; j++) {
-			d = d_2 + d_1;
-			d_2 = d_1;
-			d_1 = d;
-			System.out.println(String.format("下标:%d,前第二个:%d,前第一个:%d,当前:%d", j, d_2, d_1, d));
+		int current = 0;
+		int prePre = 1;
+		int pre = 2;
+		for (int j = 3; j <= n; j++) {
+			current = prePre + pre;
+			prePre = pre;
+			pre = current;
+			System.out.println(String.format("下标:%d,前第二个:%d,前第一个:%d,当前:%d", j, prePre, pre, current));
 		}
-		return d;
+		return current;
+	}
+
+	/**
+	 * 递归算法，耗时长
+	 *
+	 * @param n
+	 * @return
+	 */
+	public static int climbStairs1(int n) {
+		if (n <= 2) {
+			return n;
+		}
+
+		return climbStairs1(n - 1) + climbStairs1(n - 2);
 	}
 
 	public static void main(String[] args) {
-		int s = test(8);
+		int s = climbStairs(45);
 		System.out.println(s);
 	}
 }

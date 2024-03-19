@@ -24,7 +24,7 @@ public class ListNode {
 		ListNode head = null;
 		ListNode pre = null;
 		for (int i = 0; i < nums.length; i++) {
-			ListNode node = new ListNode(i);
+			ListNode node = new ListNode(nums[i]);
 			if (i == 0) {
 				head = node;
 			}
