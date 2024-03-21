@@ -3,8 +3,17 @@ package me.will.algorithm.bachtrack;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * https://leetcode.cn/problems/generate-parentheses/description/
+ */
 public class GenerateParenthesis {
 
+	/**
+	 * https://www.cnblogs.com/GarrettWale/p/15778171.html
+	 *
+	 * @param n
+	 * @return
+	 */
 	public static List<String> generateParenthesis(int n) {
 		List<String> result = new ArrayList<>();
 		dfs(n, 0, 0, "", result);

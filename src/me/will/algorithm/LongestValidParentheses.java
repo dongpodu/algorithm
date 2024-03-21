@@ -2,6 +2,9 @@ package me.will.algorithm;
 
 import java.util.Stack;
 
+/**
+ * https://leetcode-solution-leetcode-pp.gitbook.io/leetcode-solution/hard/32.longest-valid-parentheses
+ */
 public class LongestValidParentheses {
 
 	/**
@@ -23,6 +26,7 @@ public class LongestValidParentheses {
 				if (!stack.isEmpty()) {
 					stack.pop();
 				}
+				//栈为空，需要存新的开始位置
 				if (stack.isEmpty()) {
 					stack.push(i);
 				} else {
