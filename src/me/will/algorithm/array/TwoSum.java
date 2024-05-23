@@ -37,16 +37,13 @@ public class TwoSum {
 	public int[] twoSum1(int[] nums, int target) {
 		//key为元素，value为下标
 		Map<Integer, List<Integer>> map = new HashMap<>();
-		//key为target-元素，value为下标
-		Map<Integer, List<Integer>> dMap = new HashMap<>();
 		for (int i = 0; i < nums.length; i++) {
 			map.computeIfAbsent(nums[i], r -> new ArrayList<>()).add(i);
-			dMap.computeIfAbsent(target - nums[i], r -> new ArrayList<>()).add(i);
 		}
 
-		for (Integer d : dMap.keySet()) {
-			List<Integer> list = dMap.get(d);
-			List<Integer> list1 = map.get(d);
+		for (Integer d : map.keySet()) {
+			List<Integer> list = map.get(d);
+			List<Integer> list1 = map.get(target - d);
 			if (list1 != null) {
 				Integer i = list.get(0);
 				Integer j = list1.stream().filter(r -> !r.equals(i))

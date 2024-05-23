@@ -1,8 +1,6 @@
 package me.will.algorithm.array;
 
-import java.util.HashMap;
 import java.util.HashSet;
-import java.util.Map;
 import java.util.Set;
 
 /**
@@ -18,7 +16,7 @@ public class LongestConsecutive {
 		int max = 0;
 		for (int num : nums) {
 			int n = num;
-			// 说明x是连续序列的开头元素
+			// 说明x是连续序列的开头元素Ø
 			if (!set.contains(n - 1)) {
 				while (set.contains(n + 1)) {
 					n++;
