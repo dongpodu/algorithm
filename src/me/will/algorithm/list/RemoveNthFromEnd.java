@@ -32,6 +32,35 @@ public class RemoveNthFromEnd {
 		return newHead;
 	}
 
+	public static ListNode removeNthFromEnd1(ListNode head, int n) {
+		if (head == null) {
+			return null;
+		}
+		int index = size(head) - n + 1;
+		if (index < 0) {
+			return head;
+		}
+		int step = 1;
+		ListNode newHead = head;
+		ListNode curr = head;
+		ListNode pre = null;
+		while (curr != null) {
+			if (step == index) {
+				ListNode next = curr.next;
+				if (pre != null) {
+					pre.next = next;
+				} else {
+					newHead = next;
+				}
+				break;
+			}
+			pre = curr;
+			curr = curr.next;
+			step++;
+		}
+		return newHead;
+	}
+
 	public static int size(ListNode head) {
 		int size = 0;
 		ListNode current = head;
@@ -43,7 +72,7 @@ public class RemoveNthFromEnd {
 	}
 
 	public static void main(String[] args) {
-		ListNode head = ListNode.buildList(new int[]{0, 1, 2, 3, 4, 5});
+		ListNode head = ListNode.buildList(new int[] {0, 1, 2, 3, 4, 5});
 
 		ListNode.print(head);
 		System.out.println("-------删除后-------");

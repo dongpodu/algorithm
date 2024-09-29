@@ -11,6 +11,7 @@ public class MaxSubArray {
 	 * @return
 	 */
 	public static int maxSubArray(int[] nums) {
+		//以nums[i]为结尾的「最大子数组和」为dp[i]
 		int[] dp = new int[nums.length];
 		dp[0] = nums[0];
 

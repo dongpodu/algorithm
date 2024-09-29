@@ -48,13 +48,16 @@ public class MoveZeroes {
 	}
 
 	public static void swap(int[] nums, int left, int right) {
+		if (left == right) {
+			return;
+		}
 		int temp = nums[left];
 		nums[left] = nums[right];
 		nums[right] = temp;
 	}
 
 	public static void main(String[] args) {
-		int[] nums = new int[]{1, 2, 3};
+		int[] nums = new int[] {1, 2, 3};
 		moveZeroes(nums);
 		for (int i : nums) {
 			System.out.println(i);
