@@ -1,4 +1,4 @@
-package me.will.algorithm.array;
+package me.will.algorithm.bachtrack;
 
 import java.util.ArrayList;
 import java.util.LinkedList;

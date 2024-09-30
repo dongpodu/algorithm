@@ -1,4 +1,4 @@
-package me.will.algorithm;
+package me.will.algorithm.graph;
 
 /**
  * 岛屿数量
