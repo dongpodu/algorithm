@@ -1,7 +1,9 @@
 package me.will.algorithm.bachtrack;
 
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class CombinationSum {
 
@@ -43,13 +45,16 @@ public class CombinationSum {
 	public static void main(String[] args) {
 		CombinationSum solution = new CombinationSum();
 		int[] candidates =
-			{292023,15722694,8894300,4431841,179264,6626260,2447100,99653,3322500,2537755,732900,2366390,1073700};
-		int target = 17106618;
+			{182000,1246000,150000,4857799,721000,769350,9773762,7487782,8956377,9831319,7597604,9050449,9088117,60000,648000,6610000,9780000,5385000,8770000,5840000,6798200,9299700,9497500,8540600,2351979,9749996,9350000,9689547,9800022,3215000,1997200,10744600,8530200,546000,528728,278728,3777006,8939366,9388305,9185725,8703233,9679971,8434015,9066260,112000,360000,718000,359200,1616400,1798600};
+		int target = 23049000;
 		List<List<Integer>> combinations = solution.combinationSum(candidates, target);
 
 		// 打印结果
 		for (List<Integer> combo : combinations) {
-			System.out.println(combo);
+			List<BigDecimal> list = combo.stream()
+				.map(r -> new BigDecimal(r).divide(BigDecimal.valueOf(100)))
+				.collect(Collectors.toList());
+			System.out.println(list);
 		}
 	}
 }
