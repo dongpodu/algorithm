@@ -10,39 +10,39 @@ import java.util.LinkedList;
 public class MaxSlidingWindow {
 
 	public int[] maxSlidingWindow(int[] nums, int k) {
-		int[] result = new int[nums.length-k+1];
+		int[] result = new int[nums.length - k + 1];
 		MyQueue q = new MyQueue();
-		for(int i=0;i<nums.length+1;i++){
-			if(i<k){
+		for (int i = 0; i < nums.length + 1; i++) {
+			if (i < k) {
 				q.add(nums[i]);
-			}else if(i<nums.length){
-				result[i-k] = q.peek();
-				q.poll(nums[i-k]);
+			} else if (i < nums.length) {
+				result[i - k] = q.peek();
+				q.poll(nums[i - k]);
 				q.add(nums[i]);
-			}else{
-				result[i-k] = q.peek();
+			} else {
+				result[i - k] = q.peek();
 			}
 		}
 		return result;
 	}
 
-	public static class MyQueue{
+	public static class MyQueue {
 		LinkedList<Integer> q = new LinkedList<>();
 
-		void poll(int v){
-			if(!q.isEmpty() && q.peek()==v){
+		void poll(int v) {
+			if (!q.isEmpty() && q.peek() == v) {
 				q.poll();
 			}
 		}
 
-		void add(int v){
-			while(!q.isEmpty() && q.getLast()<v){
+		void add(int v) {
+			while (!q.isEmpty() && q.getLast() < v) {
 				q.removeLast();
 			}
 			q.add(v);
 		}
 
-		int peek(){
+		int peek() {
 			return q.peek();
 		}
 	}
