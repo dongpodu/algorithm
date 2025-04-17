@@ -5,21 +5,27 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Queue;
 
-public class LevelOrder {
-	public List<List<Integer>> levelOrder(TreeNode root) {
-		Queue<TreeNode> queue = new LinkedList<>();
-		queue.add(root);
+/**
+ * BFS 算法常用来寻找最短路径
+ * 层序遍历
+ */
+public class Bfs {
+
+	public static List<List<Integer>> levelOrder(MyTree tree) {
+		Queue<MyTree.TreeNode> queue = new LinkedList<>();
+		queue.add(tree.getRoot());
 
 		List<List<Integer>> result = new ArrayList<>();
-		if (root == null) {
+		if (tree.getRoot() == null) {
 			return result;
 		}
+		int depth = 1;
 		while (!queue.isEmpty()) {
 			int size = queue.size();
 			List<Integer> subList = new ArrayList<>();
-
+			System.out.println("当前所在层：" + depth);
 			for (int i = 0; i < size; i++) {
-				TreeNode node = queue.poll();
+				MyTree.TreeNode node = queue.poll();
 				if (node == null) {
 					continue;
 				}
@@ -32,8 +38,15 @@ public class LevelOrder {
 				}
 			}
 			result.add(subList);
+			depth++;
 		}
 
 		return result;
+	}
+
+	public static void main(String[] args) {
+		MyTree tree = MyTree.build();
+		List<List<Integer>> lists = levelOrder(tree);
+		System.out.println(lists);
 	}
 }

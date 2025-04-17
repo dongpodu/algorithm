@@ -4,10 +4,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
+ * DFS 算法常用来穷举所有路径
  * 二叉树遍历顺序是固定的，一般都是先左后右，
  * 但因计算逻辑在不同位置，又分为前序（在前面）、中序（在中间）、后序（在后面）遍历。
  */
-public class PreOrder {
+public class Dfs {
 
 	public static List<MyTree.TreeNode> preOrder(MyTree tree) {
 		List<MyTree.TreeNode> result = new ArrayList<>();

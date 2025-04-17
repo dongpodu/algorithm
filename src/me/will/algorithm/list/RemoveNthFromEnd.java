@@ -1,8 +1,31 @@
 package me.will.algorithm.list;
 
+/**
+ * 删除倒数第n节点
+ */
 public class RemoveNthFromEnd {
 
+	/**
+	 * 先找到倒数第n+1节点，然后删除
+	 *
+	 * @param head
+	 * @param n
+	 * @return
+	 */
 	public static ListNode removeNthFromEnd(ListNode head, int n) {
+		ListNode dummy = new ListNode(-1);
+		dummy.next = head;
+		//找到倒数第n+1节点
+		ListNode x = FindNthFromEnd.findFromEnd(dummy, n + 1);
+		System.out.println("第n+1节点" + x);
+		if (x == null) {
+			return null;
+		}
+		x.next = x.next.next;
+		return dummy.next;
+	}
+
+	public static ListNode removeNthFromEnd1(ListNode head, int n) {
 		int size = size(head);
 		int removeIndex = size - n;
 		if (removeIndex < 0) {
@@ -32,7 +55,7 @@ public class RemoveNthFromEnd {
 		return newHead;
 	}
 
-	public static ListNode removeNthFromEnd1(ListNode head, int n) {
+	public static ListNode removeNthFromEnd2(ListNode head, int n) {
 		if (head == null) {
 			return null;
 		}
@@ -72,7 +95,7 @@ public class RemoveNthFromEnd {
 	}
 
 	public static void main(String[] args) {
-		ListNode head = ListNode.buildList(new int[] {0, 1, 2, 3, 4, 5});
+		ListNode head = ListNode.buildList(new int[]{0, 1, 2, 3, 4, 5});
 
 		ListNode.print(head);
 		System.out.println("-------删除后-------");
