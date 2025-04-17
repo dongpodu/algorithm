@@ -46,8 +46,7 @@ public class ListNode {
 		ListNode head = new ListNode(nums[0]);
 		ListNode cur = head;
 		for (int i = 1; i < nums.length; i++) {
-			ListNode newNode = new ListNode(nums[i]);
-			cur.next = newNode;
+			cur.next = new ListNode(nums[i]);
 			cur = cur.next;
 		}
 		return head;
@@ -62,7 +61,7 @@ public class ListNode {
 	}
 
 	public static void main(String[] args) {
-		ListNode list = buildList1(new int[] {0, 1, 2, 3, 4, 5});
+		ListNode list = buildList1(new int[]{0, 1, 2, 3, 4, 5});
 		print(list);
 	}
 }

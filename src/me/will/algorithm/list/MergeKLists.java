@@ -20,15 +20,14 @@ public class MergeKLists {
 		// 虚拟头结点
 		ListNode dummy = new ListNode(-1);
 		ListNode p = dummy;
-
 		while (!queue.isEmpty()) {
 			// 获取最小节点，接到结果链表中
 			ListNode node = queue.poll();
 			p.next = node;
+			p = p.next;
 			if (node.next != null) {
 				queue.add(node.next);
 			}
-			p = p.next;
 		}
 		return dummy.next;
 	}
