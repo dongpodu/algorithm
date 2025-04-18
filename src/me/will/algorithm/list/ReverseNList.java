@@ -1,35 +1,37 @@
 package me.will.algorithm.list;
 
-public class ReverseList {
+/**
+ * 翻转前n链表
+ */
+public class ReverseNList {
 
-	/**
-	 * 翻转整个链表，双指针法
-	 * https://www.programmercarl.com/0206.%E7%BF%BB%E8%BD%AC%E9%93%BE%E8%A1%A8.html#%E6%80%9D%E8%B7%AF
-	 *
-	 * @param head
-	 * @return
-	 */
-	public static ListNode reverse(ListNode head) {
-		ListNode cur = head;
+	public static ListNode reverse(ListNode head, int n) {
+		if (head == null || head.next == null) {
+			return head;
+		}
 		ListNode pre = null;
+		ListNode cur = head;
 		ListNode next = head.next;
 
-		while (cur != null) {
-			//指针反转
+		int step = 0;
+		while (step < n) {
 			cur.next = pre;
 			pre = cur;
 			cur = next;
 			if (next != null) {
 				next = next.next;
 			}
+			step++;
 		}
+		// 此时的 cur 是第 n + 1 个节点，head 是反转后的尾结点
+		head.next = cur;
 		return pre;
 	}
 
 	public static void main(String[] args) {
 		ListNode head = ListNode.buildList(new int[]{0, 1, 2, 3, 4});
 		System.out.println("-------翻转后-------");
-		ListNode newHead = reverse(head);
+		ListNode newHead = reverse(head, 2);
 		ListNode.print(newHead);
 	}
 
