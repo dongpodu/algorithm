@@ -4,7 +4,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class FourSumCount {
+public class 四数之和 {
     /**
      * 统计数组A、B、C、D中有多少种情况使得a+b+c+d=0
      *
