@@ -36,7 +36,5 @@ public class 二叉树右视图 {
 			level(root.left, depth + 1, res);
 		}
 	}
-​
-
 
 }
