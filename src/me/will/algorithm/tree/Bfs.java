@@ -11,6 +11,12 @@ import java.util.Queue;
  */
 public class Bfs {
 
+	/**
+	 * 层序遍历
+	 *
+	 * @param tree
+	 * @return
+	 */
 	public static List<List<Integer>> levelOrder(MyTree tree) {
 		Queue<MyTree.TreeNode> queue = new LinkedList<>();
 		queue.add(tree.getRoot());

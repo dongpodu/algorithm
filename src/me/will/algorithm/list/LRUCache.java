@@ -1,12 +1,15 @@
-package me.will.algorithm;
+package me.will.algorithm.list;
 
 import java.util.HashMap;
 import java.util.Map;
 
 /**
  * 使用双端队列，按照使用时间依次排列，每次使用（set、put）都将节点放在头部，当容量超过时，从队尾删除数据
+ *
+ * @param <K>
+ * @param <V>
  */
-public class LRUCache {
+public class LRUCache<K, V> {
 	public static class Node<K, V> {
 		private Node pre;
 		private Node next;
@@ -51,26 +54,22 @@ public class LRUCache {
 		}
 	}
 
-	private Map<Integer, Node<Integer, Integer>> map = new HashMap<>();
+	private Map<K, Node<K, V>> map = new HashMap<>();
 	/**
 	 * 最年轻的节点
 	 */
-	private Node<Integer, Integer> head;
+	private Node<K, V> head;
 	/**
 	 * 最老的节点
 	 */
-	private Node<Integer, Integer> tail;
+	private Node<K, V> tail;
 	/**
 	 * 容量
 	 */
 	private int cap;
 
-	public LRUCache(int capacity) {
-		cap = capacity;
-	}
-
-	public Integer get(Integer key) {
-		Node<Integer, Integer> node = map.get(key);
+	public V get(K key) {
+		Node<K, V> node = map.get(key);
 		if (node != null) {
 			remove(node);
 			appendHead(node);
@@ -79,7 +78,7 @@ public class LRUCache {
 		return null;
 	}
 
-	public void put(Integer key, Integer v) {
+	public void set(K key, V v) {
 		Node node = map.get(key);
 		if (node == null) {
 			node = new Node(key, v);
@@ -91,7 +90,7 @@ public class LRUCache {
 		}
 		int size = map.size();
 		if (size > cap) {
-			Node<Integer, Integer> n = removeOldest();
+			Node<K, V> n = removeOldest();
 			map.remove(n.getK());
 		}
 	}
@@ -103,7 +102,7 @@ public class LRUCache {
 		next.pre = pre;
 	}
 
-	private Node<Integer, Integer> removeOldest() {
+	private Node<K, V> removeOldest() {
 		Node t = tail;
 		Node pre = tail.pre;
 		pre.next = null;
