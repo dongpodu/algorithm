@@ -10,23 +10,6 @@ import java.util.Map;
  * https://leetcode.cn/problems/two-sum/
  */
 public class 两数之和 {
-	/**
-	 * 暴力解法
-	 *
-	 * @param nums
-	 * @param target
-	 * @return
-	 */
-	public int[] twoSum(int[] nums, int target) {
-		for (int i = 0; i < nums.length; i++) {
-			for (int j = i + 1; j < nums.length; j++) {
-				if (nums[i] + nums[j] == target) {
-					return new int[]{i, j};
-				}
-			}
-		}
-		return null;
-	}
 
 	/**
 	 * 高效解法
@@ -35,7 +18,7 @@ public class 两数之和 {
 	 * @param target
 	 * @return
 	 */
-	public int[] twoSum1(int[] nums, int target) {
+	public int[] twoSum(int[] nums, int target) {
 		//key为元素，value为下标
 		Map<Integer, List<Integer>> map = new HashMap<>();
 		for (int i = 0; i < nums.length; i++) {

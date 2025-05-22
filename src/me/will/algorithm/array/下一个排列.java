@@ -13,7 +13,7 @@ public class 下一个排列 {
 	 * @param nums
 	 */
 	public static void nextPermutation(int[] nums) {
-		//分界点索引,分界点右边是一个倒序递增序列
+		//分界点索引,分界点右边是一个递减序列
 		int index = nums.length - 1;
 		while (index > 0 && nums[index] <= nums[index - 1]) {
 			index--;

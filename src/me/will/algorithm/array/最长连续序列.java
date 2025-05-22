@@ -17,7 +17,7 @@ public class 最长连续序列 {
 		int max = 0;
 		for (int num : nums) {
 			int n = num;
-			// 说明x是连续序列的开头元素Ø
+			// 说明x是连续序列的开头元素
 			if (!set.contains(n - 1)) {
 				while (set.contains(n + 1)) {
 					n++;

@@ -8,7 +8,7 @@ package me.will.algorithm.array;
 public class 寻找重复数 {
 
 	/**
-	 * 将arr[i]当做下标，形成一个链表。说明一定有环，环节点就是重复的节点
+	 * 将arr[i]当做下标，形成一个链表。有重复数代表链表一定有环，环节点就是重复的节点
 	 * https://www.cnblogs.com/swx123/p/17271979.html
 	 *
 	 * @param arr
